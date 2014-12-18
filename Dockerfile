@@ -6,6 +6,7 @@ RUN apt-get -qq update
 # Install prereqs
 RUN apt-get --no-install-recommends -y install \
     build-essential \
+    openssh-client \
     ca-certificates \
     curl \
     git \
@@ -29,5 +30,4 @@ ENV ANSIBLE_LIBRARY /opt/ansible/ansible/library
 # Provision the dev box
 RUN git clone http://github.com/yehohanan7/scm.git /tmp/scm
 WORKDIR /tmp/scm
-RUN git pull origin master
 RUN ansible-playbook ansible/site.yml -i hosts
