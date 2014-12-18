@@ -24,16 +24,6 @@ ENV PATH /opt/ansible/ansible/bin:/bin:/usr/bin:/sbin:/usr/sbin
 ENV PYTHONPATH /opt/ansible/ansible/lib
 ENV ANSIBLE_LIBRARY /opt/ansible/ansible/library
 
-# Build rebar
-RUN useradd -m rebar
-USER rebar
-WORKDIR /home/rebar
-RUN curl -L https://github.com/rebar/rebar/archive/2.5.0.tar.gz | tar zxf -
-WORKDIR /home/rebar/rebar-2.5.0
-RUN ./bootstrap
-USER root
-RUN cp rebar /usr/local/bin/
-RUN chmod 755 /usr/local/bin/rebar
 
 # Provision the dev box
 RUN git clone http://github.com/yehohanan7/scm.git /tmp/scm
