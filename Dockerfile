@@ -12,7 +12,10 @@ RUN apt-get --no-install-recommends -y install \
     git \
     libicu-dev \
     libmozjs185-dev \
-    python
+    python \
+    python-software-properties \
+    software-properties-common
+    
 
 # Build and install ansible
 RUN apt-get install -y python-yaml python-jinja2 python-httplib2 python-keyczar python-paramiko python-setuptools python-pkg-resources git python-pip
